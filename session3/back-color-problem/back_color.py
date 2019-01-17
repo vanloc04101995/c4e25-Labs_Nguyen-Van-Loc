@@ -1,4 +1,7 @@
 import random 
+import sys
+sys.path.append(r'E:\python\Labs\session3\homework')
+from is_inside_game import is_inside
 
 shapes = [
     {
@@ -27,22 +30,17 @@ shapes = [
 def get_shapes():
     return shapes
 
-
 def generate_quiz():
     t = random.randint(0,3)
     a = random.randint(0,3)
     return  [shapes[t]['text'].upper(),shapes[a]['color'],random.randint(0, 1)]
 
-import sys
-sys.path.append(r'E:\python\Labs\session3\homework')
-
-from is_inside_game import is_inside
 def mouse_press(x, y, text, color, quiz_type):
     for  check in shapes:
-        if quiz_type == 0:
+        if quiz_type == 1:
             if check['text'] == text.lower():
-                click = is_inside([x, y], check['rect'])
+                user_click = is_inside([x, y], check['rect'])
         else:
             if check['color'] == color:
-                click = is_inside([x, y], check['rect'])
+                user_click = is_inside([x, y], check['rect'])
     return click
