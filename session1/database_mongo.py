@@ -15,4 +15,3 @@ post = {
  
 }
 # Inserting a Document
-collection
